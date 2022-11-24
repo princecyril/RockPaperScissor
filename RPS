@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function getComputerChoice() {
+        const moves = ["Rock", "Paper", "Scissor"];
+        const random = Math.floor(Math.random() * moves.length);
+        return moves[random];
+
+    }
+    
+    function play(playerSelection, pc) {
+        if (pc == playerSelection) {
+            let answer = "It is a tie";
+            return answer;
+        }
+        else if (pc == "Rock") {
+            if (playerSelection == "Paper"){
+                let answer = "You Win!";
+                return answer;
+            }
+            else if (playerSelection == "Scissor") {
+                let answer = "You Lose!";
+                return answer;
+            }
+        }
+        else if (pc == "Paper") {
+            if (playerSelection == "Rock"){
+                let answer = "You Lose!";
+                return answer;
+            }
+            else if (playerSelection == "Scissor") {
+                let answer = "You Win!";
+                return answer;
+            }
+        }
+        else if (pc == "Scissor") {
+            if (playerSelection == "Paper"){
+                let answer = "You Lose!";
+                return answer;
+            }
+            else if (playerSelection == "Rock") {
+                let answer = "You Win!";
+                return answer;
+            }
+        }
+        
+        
+    }
+    
+
+//let playerSelection = prompt("Rock, Paper or Scissor");
+//let pc = getComputerChoice();
+//console.log(playerSelection)
+//console.log(pc)
+//play(playerSelection, pc);
+//console.log(play(playerSelection, pc));
+
+let computerScore = 0;
+let playerScore = 0;
+
+function game() {
+    let playerSelection = prompt("Rock, Paper or Scissor");
+    let pc = getComputerChoice();
+    console.log(playerSelection)
+    console.log(pc)
+    if (play(playerSelection, pc) == "You Win!"){
+        playerScore++;
+
+    }
+    else if (play(playerSelection, pc) == "You Lose!"){
+        computerScore++;
+    }
+
+   }
+for (let i = 0; i < 5; i++) {
+    game();
+    //console.log(play(playerSelection, pc));
+    //console.log(game());
+    console.log("Player's Score: " + playerScore)
+    console.log("Computer's Score: " + computerScore)
+
+}
+
+if (playerScore > computerScore) {
+    console.log("Player wins")
+}
+else {
+    console.log("Computer wins")
+}
+
+
+
+
+</script>
+</html>
